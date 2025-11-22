@@ -1,9 +1,7 @@
-hint = "palavra"
+import random
 
-print(*hint, sep=" ")
+list_of_word = ["jesus", "mosiah", "moroni", "alma", "jacob", "helaman", "nephi", "lehi", "mormon", "enos", "omni", "ether"]
 
-hint = ""
+secret_word = list_of_word[random.randint(1, len(list_of_word))]
 
-hint = "oi"
-
-print(hint)
+print(secret_word)

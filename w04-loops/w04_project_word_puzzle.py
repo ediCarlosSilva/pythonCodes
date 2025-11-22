@@ -1,11 +1,16 @@
+# Showing Creativity: I used random library to get the secret word from a list. You can see the code from line 8 to 12
 """
 Author: Edi Carlos
 Program: Word Puzzle
 
 Description: An interactive word puzzle game that allows the user to make guesses until they get the answer correct, and hints are provided along the way.
 """
+import random
 
-secret_word = "mosiah"
+list_of_word = ["jesus", "mosiah", "moroni", "alma", "jacob", "helaman", "nephi", "lehi", "mormon", "enos", "omni", "ether"]
+random_index = random.randint(1, len(list_of_word) - 1)
+secret_word = list_of_word[random_index]
+
 number_letter_of_secret_word = len(secret_word)
 
 print("Welcome to the word guessing game!")
@@ -13,7 +18,7 @@ print("Welcome to the word guessing game!")
 print("\nWhile gaming, you can hit the keys: ctrl + c (at any time), to end the game.\n")
 
 guessed_word = ""
-guesses = 1
+guesses = 0
 hint = ""
 
 for index in range(number_letter_of_secret_word):
@@ -46,7 +51,14 @@ while guessed_word != secret_word:
         else:
             hint += "_"
 
-    
+    array_hint = list(hint)
+    for index in range(number_letter_of_guessed_word):
+         if guessed_word[index] in secret_word:
+              if guessed_word[index] != secret_word[index]:
+                   array_hint[index] = guessed_word[index]
+
+    hint = "".join(array_hint)
+
             # else:
             #     hint += guessed_word[index].lower()
 
@@ -54,12 +66,4 @@ while guessed_word != secret_word:
 
 print("Congratulations! You guessed it!")    
 print(f"It took you {guesses} guesses.")
-
-    
-    
-    # number_letter_of_guessed_word = len(guessed_word)
-
-    # if number_letter_of_guessed_word != number_letter_of_secret_word:
-    #     print("Sorry, the guess must have the same number of letters as the secret word.")
-    #     guess += 1
 
