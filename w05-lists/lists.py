@@ -1,4 +1,5 @@
 clients = []
+# clients = list()
 
 clients.append("John")
 clients.append("Mary")
